@@ -61,7 +61,7 @@ func CheckNoState(t *testing.T, stub *cms.CustomMockStub, key string) {
 	}
 }
 
-func CheckInit(t *testing.T, stub *shim.MockStub, args []string, transactionID string) {
+func CheckInit(t *testing.T, stub *cms.CustomMockStub, args []string, transactionID string) {
 	res := stub.MockInit(transactionID, stringsAsBytes(args))
 	if res.Status != shim.OK {
 		testLog.Error("Init", args, "failed", string(res.Message))
@@ -69,4 +69,16 @@ func CheckInit(t *testing.T, stub *shim.MockStub, args []string, transactionID s
 	} else {
 		testLog.Info("Init", args, "successful", string(res.Message))
 	}
+}
+
+func PutState(t *testing.T, stub *cms.CustomMockStub, transactionID, key string, value []byte) {
+	stub.MockTransactionStart(transactionID)
+
+	// Put the value in the ledger
+	if err := stub.PutState(key, value); err != nil {
+		testLog.Error("Failed to wright the value", string(value), err.Error())
+		t.FailNow()
+	}
+
+	stub.MockTransactionEnd(transactionID)
 }
