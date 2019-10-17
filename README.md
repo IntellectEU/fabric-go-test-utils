@@ -1,6 +1,7 @@
 # Hyperledger Fabric Go chaincode testing utilities
 
 These utilities are helpful during chaincode testing since they include:
+
 *  CheckInvoke - returns the result of an invoke if it succeeded, otherwise fails the test
 *  CheckBadInvoke - expect an invoke to return an error, otherwise fails the test
 *  CheckState - compares the passed value with the stored one and fails the test if they are not similar
