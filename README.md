@@ -14,6 +14,6 @@ These functions receive a MockStub implemented from [this repository](https://bi
 ### Installation
 To include the module in your project just add it to your dependencies:
 ```Go
-import "bitbucket.org/yurii_uhlanov_intellecteu/fabric-go-test-utils"
+import "github.com/intellecteu/fabric-go-test-utils"
 ```
 
