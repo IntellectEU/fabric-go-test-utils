@@ -3,7 +3,7 @@ package testutils
 import (
 	"testing"
 
-	cms "bitbucket.org/yurii_uhlanov_intellecteu/fabric-go-mockstub-impl"
+	cms "github.com/intellecteu/fabric-go-mockstub-impl"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 )
 
